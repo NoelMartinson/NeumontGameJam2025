@@ -37,7 +37,7 @@ namespace whermst {
 	}
 
 
-	bool AudioSystem::AddSound(const std::string& filename, const std::string& name)
+	bool AudioSystem::Load(const std::string& filename, const std::string& name)
 	{
 		std::string key = (name.empty()) ? filename : name;
 
