@@ -21,5 +21,8 @@
     <ClInclude Include="Game\FileGame.h">
       <Filter>Source\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Folder.h">
+      <Filter>Source\Game</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
