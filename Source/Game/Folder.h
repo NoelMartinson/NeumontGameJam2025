@@ -26,10 +26,11 @@ public:
 
 	void OnCollision(Actor* other) override;
 
+	void OpenFolder(const Folder& folder, Folder& workingFolder);
+
 private:
 	std::string _name;
 	std::vector<Folder> _folders;
-
 	bool _encrypted;
 
 	
