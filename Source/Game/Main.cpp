@@ -53,7 +53,7 @@ int main(int argc, char* argv[]) {
 
     
 
-		whermst::Resources().Get<whermst::Texture>("Assets/emptyFolder.png", whermst::GetEngine().GetRenderer());
+		
     
   
     //MAIN LOOP
