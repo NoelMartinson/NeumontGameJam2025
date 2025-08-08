@@ -8,7 +8,9 @@ class FileGame : public whermst::Game {
 public:
 	enum class GameState {
 		Initialize,
-
+		Title,
+		Game,
+		GameOver
 	};
 
 public:
