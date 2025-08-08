@@ -24,9 +24,7 @@ public:
 		return yes;
 	}
 
-	void OnCollision(Actor* other) override {
-
-	}
+	void OnCollision(Actor* other) override;
 
 private:
 	std::string _name;
