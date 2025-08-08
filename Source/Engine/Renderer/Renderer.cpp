@@ -49,6 +49,12 @@ namespace whermst {
         return true;
     }
 
+    bool Renderer::CreateWindowF(Renderer& renderer, bool isFull)
+    {
+        SDL_SetWindowFullscreen(renderer.GetWindow(), isFull);
+        return false;
+    }
+
     void Renderer::SetColour(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
     {
         SDL_SetRenderDrawColor(_renderer, r, g, b, a);

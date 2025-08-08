@@ -15,6 +15,7 @@ namespace whermst {
 
 		void CloseWindow();
 		bool CreateWindow(const std::string& name, int width, int height);
+		bool CreateWindowF(Renderer& renderer, bool isFull);
 		SDL_Window* GetWindow() const { return _window; }
 
 		void SetColour(uint8_t r, uint8_t g, uint8_t b, uint8_t a = 255);
