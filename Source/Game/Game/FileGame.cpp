@@ -1,8 +1,10 @@
 #include "FileGame.h"
+#include "Framework/Scene.h"
 
 bool FileGame::Initialize()
 {
-	return false;
+	_scene = std::make_unique<whermst::Scene>(this);
+	return true;
 }
 
 void FileGame::Update(float dt)
@@ -28,5 +30,5 @@ void FileGame::Shutdown()
 {
 }
 void FileGame::Draw(class whermst::Renderer& renderer) {
-
+	_scene->Draw(renderer);
 }
