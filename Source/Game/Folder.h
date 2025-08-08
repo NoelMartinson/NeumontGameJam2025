@@ -7,9 +7,10 @@
 class Folder : public whermst::Actor{
 public:
 	Folder() = default;
-	Folder(std::string name, bool isEncrypted) {
+	Folder(const whermst::Transform& transform, whermst::res_t<whermst::Texture> texture, std::string name = "Steve Jobs", bool isEncrypted = false) : Actor{transform, texture} {
 		_name =  name;
 		_encrypted = isEncrypted;
+		_texture = texture;
 	}
 
 	bool AddFolder(Folder addedFolder) {
