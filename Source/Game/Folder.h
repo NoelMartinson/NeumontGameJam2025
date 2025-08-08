@@ -1,9 +1,10 @@
 #pragma once
 #include "Core/StringHelper.h"
+#include "Framework/Actor.h"
 #include <vector>
 #include <memory>
 
-class Folder {
+class Folder : public whermst::Actor{
 public:
 	Folder() = default;
 	Folder(std::string name, bool isEncrypted) {
@@ -22,7 +23,7 @@ public:
 		return yes;
 	}
 
-	
+	void OnCollision(Actor* other) override;
 
 private:
 	std::string _name;
