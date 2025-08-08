@@ -13,7 +13,7 @@ namespace whermst {
 
 		bool Load(const std::string& fileName, class Renderer& renderer);
 
-		vec2 GetSize();
+		vec2 GetSize(float scale);
 
 		friend class Renderer;
 	private:
