@@ -1,5 +1,6 @@
 #pragma once
 #include "Math/Vector2.h"
+#include "Core/Time.h"
 #include <vector>
 #include <array>
 #include <string>
@@ -34,6 +35,7 @@ namespace whermst {
 		bool GetPreviousMouseButtonDown(MouseButton button) const {  return _prevMouseButtonState[(uint8_t)button]; }
 		bool GetMouseButtonPressed(MouseButton button) const {  return _mouseButtonState[(uint8_t)button] && !_prevMouseButtonState[(uint8_t)button]; }
 		bool GetMouseButtonReleased(MouseButton button) const {  return !_mouseButtonState[(uint8_t)button] && _prevMouseButtonState[(uint8_t)button]; }
+		
 
 		const vec2& GetMousePosition() const { return _mousePosition; }
 		const vec2& GetPreviousMousePosition() const { return _prevMousePosition; }
