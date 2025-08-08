@@ -30,6 +30,6 @@ namespace whermst{
 	/// <returns>The computed radius of the actor. Returns 0 if the actor has no texture.</returns>
 	float Actor::GetRadius()
 	{
-		return (_texture) ? (_texture->GetSize(transform.scale).Length() * 0.5f) * transform.scale * 0.8f : 0;
+		return (_texture) ? (_texture->GetSize(0.25f).Length() * 0.5f) * transform.scale * 0.8f : 0;
 	}
 }
