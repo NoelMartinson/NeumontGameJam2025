@@ -90,7 +90,7 @@ namespace whermst {
 
     void Renderer::DrawTexture(Texture* texture, float x, float y, float angle, float scale)
     {
-        vec2 size = texture->GetSize(0.25f);
+        vec2 size = texture->GetSize(scale);
         SDL_FRect destRect;
         destRect.w = size.x * scale;
         destRect.h = size.y * scale;

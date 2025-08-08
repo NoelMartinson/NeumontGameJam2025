@@ -28,8 +28,8 @@ namespace whermst{
 	/// Returns the effective radius of the actor based on its texture size, scale, and a scaling factor.
 	/// </summary>
 	/// <returns>The computed radius of the actor. Returns 0 if the actor has no texture.</returns>
-	float Actor::GetRadius()
+	float Actor::GetRadius( float scale)
 	{
-		return (_texture) ? (_texture->GetSize(0.25f).Length() * 0.5f) * transform.scale * 0.8f : 0;
+		return (_texture) ? (_texture->GetSize(scale).Length() * 0.5f) * transform.scale * 0.8f : 0;
 	}
 }

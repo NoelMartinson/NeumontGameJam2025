@@ -1,5 +1,6 @@
 #include "File.h"
 #include "StringHelper.h"
+#include "Core/Logger.h"
 #include <filesystem>
 #include <iostream>
 #include <fstream>
@@ -138,6 +139,22 @@ namespace whermst::file
         return sb.toString();
     }
     
+    std::string ReadFileBySpecificLine(const std::string& path, int lineNumber)
+    {
+		int currentLine = 0;
+        std::ifstream file(path);
+        if (!file.is_open()) {
+			Logger::Error("Failed to open file: {}", path);
+        }
+        std::string line;
+        while (std::getline(file, line)) {
+			if (currentLine == lineNumber) {
+				return line;
+			}
+			++currentLine;
+        }
+        return std::string();
+	}
 
     
 

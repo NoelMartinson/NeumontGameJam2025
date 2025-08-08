@@ -28,7 +28,7 @@ namespace whermst {
 
 		virtual void OnCollision(Actor* other) = 0;
 
-		float GetRadius();
+		float GetRadius(float scale);
 
 
 	protected:

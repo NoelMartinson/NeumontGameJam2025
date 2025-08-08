@@ -12,7 +12,7 @@ namespace whermst {
 	public:
 		Scene(Game* game) : _game{ game } {}
 
-		void Update(float dt);
+		void Update(float dt, float scale = 1);
 		void Draw(class Renderer& renderer);
 		void AddActor(std::unique_ptr< Actor> actor);
 

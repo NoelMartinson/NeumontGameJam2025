@@ -1,4 +1,6 @@
 #include "Folder.h"
+#include "Engine.h"
+#include "Input/InputSystem.h"
 
 void Folder::OnCollision(Actor* other)
 {

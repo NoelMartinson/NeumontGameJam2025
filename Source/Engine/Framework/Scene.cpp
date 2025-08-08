@@ -9,7 +9,7 @@ namespace whermst {
 	/// Updates all actors in the scene by advancing their state based on the elapsed time.
 	/// </summary>
 	/// <param name="dt">The time elapsed since the last update, in seconds.</param>
-	void Scene::Update(float dt) {
+	void Scene::Update(float dt, float scale) {
 		for (auto& actor : _actors) {
 			actor->Update(dt);
 		}
@@ -29,7 +29,7 @@ namespace whermst {
 				if (actorA == actorB || (actorA->destroyed || actorB->destroyed)) continue;
 
 				float distance = (actorA->transform.position - actorB->transform.position).Length();
-				if (distance <= (actorA->GetRadius() + actorB->GetRadius())) {
+				if (distance <= (actorA->GetRadius(scale) + actorB->GetRadius(scale))) {
 					actorA->OnCollision(actorB.get());
 					actorB->OnCollision(actorA.get());
 				}
