@@ -1,3 +1,0 @@
-This is a test for the file system. 
-
-If you are reading this, good luck. You're going to need it.

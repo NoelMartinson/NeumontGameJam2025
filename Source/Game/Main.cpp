@@ -21,6 +21,8 @@
 #include "Renderer/Texture.h"
 #include "Resources/ResourceManager.h"
 
+#include "Game/FileGame.h"
+
 
 
 
@@ -32,7 +34,8 @@ int main(int argc, char* argv[]) {
 	
     
     //initialize game
-	
+	std::unique_ptr<whermst::Game> game = std::make_unique<FileGame>();
+	game->Initialize();
 	
 
    //initialize font
@@ -50,6 +53,7 @@ int main(int argc, char* argv[]) {
 
     
 
+		whermst::Resources().Get<whermst::Texture>("Assets/emptyFolder.png", whermst::GetEngine().GetRenderer());
     
   
     //MAIN LOOP
@@ -71,21 +75,18 @@ int main(int argc, char* argv[]) {
         }
       
       
-        
-        
-
-        
-
-        
-
-
         //draw
         
+        
 
-       
+        
 
-       
-        whermst::GetEngine().GetRenderer().Present(); // Render the screen
+        
+
+
+		game->Draw(whermst::GetEngine().GetRenderer());
+
+       whermst::GetEngine().GetRenderer().Present(); // Render the screen
     }
 	 // Shutdown the game
 	 // Release the game object
