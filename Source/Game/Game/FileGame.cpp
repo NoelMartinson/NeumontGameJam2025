@@ -1,5 +1,6 @@
 #include "FileGame.h"
 #include "Framework/Scene.h"
+#include "../Folder.h"
 
 bool FileGame::Initialize()
 {
@@ -12,10 +13,11 @@ void FileGame::Update(float dt)
 	switch (gameState)
 	{
 	case GameState::Initialize:
-		// Initialization logic
+		gameState = GameState::Title;
 		break;
 	case GameState::Title:
-		// Title screen logic
+		auto folder = std::make_shared<Folder>("Player", false);
+		_scene->AddActor(folder);
 		break;
 	case GameState::Game:
 		// Main game logic

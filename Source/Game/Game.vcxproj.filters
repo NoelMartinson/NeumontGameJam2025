@@ -16,6 +16,9 @@
     <ClCompile Include="Game\FileGame.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Folder.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\FileGame.h">
