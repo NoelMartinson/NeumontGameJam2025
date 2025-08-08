@@ -10,6 +10,13 @@ namespace whermst::file
 {
 
 
+    bool Exists(const std::string& path)
+    {
+        std::error_code ec;
+        bool result = std::filesystem::exists(path, ec);
+
+        return !ec && result;
+    }
     std::string GetCurrentDirectory()
     {
         std::error_code ec;
@@ -20,7 +27,12 @@ namespace whermst::file
     bool SetCurrentDirectory(const std::string& path)
     {
         std::error_code ec;
-		std::filesystem::current_path(path, ec);
+        if (Exists(path)) {
+            std::filesystem::current_path(path, ec);
+        } else {
+			std::filesystem::create_directories(path, ec);
+			std::filesystem::current_path(path, ec);
+		}
         return !ec;
     }
 
@@ -36,13 +48,6 @@ namespace whermst::file
 		return p.filename().string();
     }
 
-    bool Exists(const std::string& path)
-    {
-        std::error_code ec;
-        bool result = std::filesystem::exists(path, ec);
-
-        return !ec && result;
-    }
 
     int GetLineCountInFile(const std::string& path)
     {

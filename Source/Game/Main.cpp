@@ -47,7 +47,6 @@ int main(int argc, char* argv[]) {
     SDL_Event e;
     bool quit = false;
 
-    
 
     
 
