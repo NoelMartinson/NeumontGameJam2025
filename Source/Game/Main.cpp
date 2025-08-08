@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
     
 
     //initialize image
-	
+    auto BKG = whermst::Resources().Get<whermst::Texture>("Assets/Background(temp).png", whermst::GetEngine().GetRenderer());
 
     SDL_Event e;
     bool quit = false;
@@ -76,7 +76,8 @@ int main(int argc, char* argv[]) {
       
       
         //draw
-        
+		whermst::GetEngine().GetRenderer().Clear(); // Clear the screen
+		whermst::GetEngine().GetRenderer().DrawTexture(BKG.get(), 0, 0);
         
 
         
