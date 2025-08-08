@@ -3,6 +3,7 @@
 #include "Renderer/Font.h"
 #include "Renderer/Text.h"
 #include "Audio/AudioSystem.h"
+#include "../Folder.h"
 
 class FileGame : public whermst::Game {
 public:
@@ -23,4 +24,6 @@ public:
 
 private:
 	GameState gameState = GameState::Initialize;
+
+	Folder workingFolder = Folder();
 };
