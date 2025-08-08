@@ -56,14 +56,19 @@ int main(int argc, char* argv[]) {
     //MAIN LOOP
     while (!quit) {
 
-        //update engine
-		
-        
+        //update engine		
+     
         while (SDL_PollEvent(&e)) {
             if (e.type == SDL_EVENT_QUIT) {
                 quit = true;
             }
             whermst::GetEngine().GetInput().HandleEvent(e);
+        }
+
+        whermst::GetEngine().Update();
+
+        if (whermst::GetEngine().GetInput().GetKeyPressed(SDL_SCANCODE_ESCAPE)) {
+            quit = true;
         }
       
       
