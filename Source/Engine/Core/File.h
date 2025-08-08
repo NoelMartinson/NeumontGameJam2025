@@ -13,7 +13,7 @@ namespace whermst::file {
     std::string ReadFileByLine(const std::string& path);
     std::vector<std::string> GetFilesInDirectory(const std::string& path);
     std::vector<std::string> GetDirectoriesIn(const std::string& path);
-
+    std::string ReadFileBySpecificLine(const std::string& path, int lineNumber);
     bool ReadTextFile(const std::string& path, std::string& content);
     bool WriteTextFile(const std::string& path, const std::string& content, bool append = false);
 	bool ClearFile(const std::string& path);
