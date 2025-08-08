@@ -165,6 +165,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cursor.h" />
     <ClInclude Include="Folder.h" />
     <ClInclude Include="Game\FileGame.h" />
   </ItemGroup>

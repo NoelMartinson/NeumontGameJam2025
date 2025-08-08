@@ -27,5 +27,8 @@
     <ClInclude Include="Folder.h">
       <Filter>Source\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Cursor.h">
+      <Filter>Source\Game</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

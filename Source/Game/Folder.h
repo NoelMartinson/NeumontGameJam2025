@@ -2,7 +2,7 @@
 #include "Core/StringHelper.h"
 #include "Framework/Actor.h"
 #include <vector>
-#include <memory>
+
 
 class Folder : public whermst::Actor{
 public:
@@ -23,7 +23,9 @@ public:
 		return yes;
 	}
 
-	void OnCollision(Actor* other) override;
+	void OnCollision(Actor* other) override {
+
+	}
 
 private:
 	std::string _name;
