@@ -12,7 +12,7 @@ namespace whermst
 		_renderer = std::make_unique<whermst::Renderer>();
 
 		_renderer->Initialize();
-		_renderer->CreateWindow("", 1600, 2560);
+		_renderer->CreateWindow("", 2560, 1600);
 		_renderer->CreateWindowF(GetRenderer(), true);
 
 		_input = std::make_unique<whermst::InputSystem>();

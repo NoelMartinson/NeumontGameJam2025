@@ -10,7 +10,7 @@ bool FileGame::Initialize()
 {  
 	_scene = std::make_unique<whermst::Scene>(this);  
 	whermst::Transform transform{ whermst::vec2{whermst::GetEngine().GetRenderer().GetWidth() * 0.5f, whermst::GetEngine().GetRenderer().GetHeight() * 0.5f}, 0, 5 };
-	auto folder = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/emptyFolder.png", whermst::GetEngine().GetRenderer()));
+	auto folder = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()));
 	_scene->AddActor(std::move(folder));
 	return true;
 }  

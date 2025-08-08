@@ -17,7 +17,7 @@
       <Filter>Source\Game</Filter>
     </ClCompile>
     <ClCompile Include="Folder.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
