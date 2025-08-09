@@ -2,6 +2,7 @@
 #include "Core/StringHelper.h"
 #include "Framework/Actor.h"
 #include <vector>
+#include <iostream>
 
 
 class Folder : public whermst::Actor{
