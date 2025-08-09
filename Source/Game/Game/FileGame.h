@@ -27,4 +27,5 @@ public:
 private:
 	GameState gameState = GameState::Initialize;
 	Folder workingFolder = Folder();
+	
 };

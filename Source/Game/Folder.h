@@ -20,6 +20,7 @@ public:
 		}
 		if (yes) {
 			_folders.push_back(addedFolder);
+			addedFolder._parentFolder = this;
 		}
 		return yes;
 	}
@@ -33,6 +34,6 @@ private:
 	std::vector<Folder> _folders;
 	bool _encrypted;
 
-	
+	Folder* _parentFolder = nullptr;
 
 };
