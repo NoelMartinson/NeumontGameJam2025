@@ -4,6 +4,7 @@
 #include "Core/Logger.h"
 
 
+
 class Cursor : public whermst::Actor {
 public:
 	Cursor() = default;
@@ -18,8 +19,12 @@ public:
 
 	void OnCollision(Actor* other) override {
 		Logger::Info("Cursor: {} collided with {}", this->name, other->name);
+		if (other->tag == "File") {
+			dynamic_cast<Folder*>(other)->OpenFolder(*dynamic_cast<Folder*>(other), FileGame::GetWorkingFolder());
+		}
 	}
 private:
 	std::vector<whermst::vec2> cursor{ {0,0} };
 	whermst::Model model = whermst::Model(cursor);
+	Fil
 };
