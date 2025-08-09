@@ -51,7 +51,9 @@ int main(int argc, char* argv[]) {
     bool quit = false;
 
 
-    
+    whermst::GetEngine().GetAudio().Load("Assets/backgroundMusic.mp3", "background");
+    whermst::GetEngine().GetAudio().PlaySound("background");
+
 
 		
     
