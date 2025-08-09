@@ -21,12 +21,13 @@ public:
 
 	bool AddFolder(Folder addedFolder) {
 		bool yes = false;
-		for (Folder folder : _folders) {
-			if (folder._name == addedFolder._name) yes = true;
+		for (Folder& folder : _folders) {
+			if (folder._name != "Steve Jobs" && folder._name == addedFolder._name) yes = false;
 		}
 		if (yes) {
 			_folders.push_back(addedFolder);
 			addedFolder._parentFolder = this;
+
 		}
 		return yes;
 	}
