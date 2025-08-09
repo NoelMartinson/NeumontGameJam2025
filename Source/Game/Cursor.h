@@ -26,5 +26,5 @@ public:
 private:
 	std::vector<whermst::vec2> cursor{ {0,0} };
 	whermst::Model model = whermst::Model(cursor);
-	Fil
+	
 };

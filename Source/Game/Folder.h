@@ -19,17 +19,16 @@ public:
 		Actor::Update(dt);
 	}
 
-	bool AddFolder(Folder addedFolder) {
-		bool yes = false;
-		for (Folder& folder : _folders) {
-			if (folder._name != "Steve Jobs" && folder._name == addedFolder._name) yes = false;
+	bool AddFolder(Folder* addedFolder) {
+		
+		for (Folder* folder : _folders) {
+			if (folder->_name == addedFolder->_name) return false;
 		}
-		if (yes) {
-			_folders.push_back(addedFolder);
-			addedFolder._parentFolder = this;
+		_folders.push_back(addedFolder);
+		addedFolder->_parentFolder = this;
 
-		}
-		return yes;
+		
+		return true;
 	}
 
 	void OnCollision(Actor* other) override;
@@ -40,7 +39,7 @@ public:
 
 private:
 	std::string _name;
-	std::vector<Folder> _folders;
+	std::vector<Folder*> _folders;
 	bool _encrypted;
 
 	Folder* _parentFolder = nullptr;
