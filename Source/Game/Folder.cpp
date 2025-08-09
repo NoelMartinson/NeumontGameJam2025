@@ -42,6 +42,7 @@ void Folder::Draw(whermst::Renderer& renderer) {
 		folder->transform.position = position;
 		renderer.DrawTexture(folder->_texture.get(), folder->transform.position.x, folder->transform.position.y, folder->transform.rotation, folder->transform.scale);
 		position.y += 100;
+		//does this work
 	}
 }
 
