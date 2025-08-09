@@ -79,16 +79,15 @@ int main(int argc, char* argv[]) {
       
         //draw
 		whermst::GetEngine().GetRenderer().Clear(); // Clear the screen
+        
+
+        
+
+        
+
+
 		whermst::GetEngine().GetRenderer().DrawTexture(BKG.get(), 0, 0);
-        
-
-        
-
-        
-
-
 		game->Draw(whermst::GetEngine().GetRenderer());
-
        whermst::GetEngine().GetRenderer().Present(); // Render the screen
     }
 	 // Shutdown the game

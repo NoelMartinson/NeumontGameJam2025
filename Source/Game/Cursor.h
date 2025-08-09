@@ -1,6 +1,7 @@
 #pragma once
 #include "Renderer/Model.h"
 #include "Framework/Actor.h"
+#include "Core/Logger.h"
 
 
 class Cursor : public whermst::Actor {
