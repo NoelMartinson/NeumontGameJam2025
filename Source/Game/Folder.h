@@ -27,6 +27,8 @@ public:
 
 	void OnCollision(Actor* other) override;
 
+	void Draw(class Renderer& renderer);
+
 	void OpenFolder(const Folder& folder, Folder& workingFolder);
 
 private:
