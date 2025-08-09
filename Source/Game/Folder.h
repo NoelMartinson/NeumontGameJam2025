@@ -13,6 +13,11 @@ public:
 		_texture = texture;
 	}
 
+	void Update(float dt) override {
+		// Update logic for the folder, if any
+		Actor::Update(dt);
+	}
+
 	bool AddFolder(Folder addedFolder) {
 		bool yes = false;
 		for (Folder folder : _folders) {

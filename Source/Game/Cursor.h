@@ -10,6 +10,12 @@ public:
 	Cursor(const whermst::Transform& transform, whermst::res_t<whermst::Texture> texture) : Actor{ transform, texture } {}
 	~Cursor() = default;
 
+	void Update(float dt) override {
+		// Update cursor position based on input
+
+		Actor::Update(dt);
+	}
+
 	void OnCollision(Actor* other) override {
 		Logger::Info("Cursor: {} collided with {}", this->name, other->name);
 	}
