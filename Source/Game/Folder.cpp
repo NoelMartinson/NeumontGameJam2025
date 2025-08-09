@@ -2,12 +2,20 @@
 #include "Engine.h"
 #include "Input/InputSystem.h"
 #include "Renderer/Renderer.h"
+#include "Core/File.h"
 
 void Folder::OnCollision(Actor* other)
 {
 	if (whermst::tolower(other->tag) != whermst::tolower(tag)) {
 		Logger::Info("Folder: {} collided with {}", this->_name, other->name);
-		
+		std::string folderName = name;
+
+		if (whermst::file::Exists(folderName)) {
+			Logger::Info("Folder: {} exists", folderName);
+		}
+		else {
+			Logger::Warning("Folder: {} does not exist", folderName);
+		}
 	}
 }
 
