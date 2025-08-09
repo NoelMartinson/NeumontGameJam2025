@@ -2,6 +2,7 @@
 #include "Core/StringHelper.h"
 #include "Framework/Actor.h"
 #include <vector>
+#include <iostream>
 
 
 class Folder : public whermst::Actor{
@@ -13,10 +14,11 @@ public:
 		_texture = texture;
 	}
 
-	bool AddFolder(Folder addedFolder) {
-		bool yes = false;
-		for (Folder folder : _folders) {
-			if (folder._name == addedFolder._name) yes = true;
+	bool AddFolder(Folder& addedFolder) {
+		std::cout << "_folders size: " << _folders.size() << "\n";
+		bool yes = true;
+		for (Folder& folder : _folders) {
+			if (folder._name != "Steve Jobs" && folder._name == addedFolder._name) yes = false;
 		}
 		if (yes) {
 			_folders.push_back(addedFolder);

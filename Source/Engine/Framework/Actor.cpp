@@ -7,7 +7,6 @@ namespace whermst{
 	void Actor::Update(float dt)
 	{
 		if (destroyed) {
-			
 			return; 
 		}
 		if (lifespan != 0.0f) {

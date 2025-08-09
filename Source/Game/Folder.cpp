@@ -20,8 +20,8 @@ void Folder::OpenFolder(const Folder& openedFolder, Folder& workingFolder)
 }
 
 void Folder::Draw(whermst::Renderer& renderer) {
-	float width = renderer.GetWidth();
-	float height = renderer.GetHeight();
+	float width = (float)renderer.GetWidth();
+	float height = (float)renderer.GetHeight();
 	whermst::vec2 position{ width * 0.2f, height * 0.2f };
 	for (auto folder : _folders) {
 		folder.transform.position = position;
