@@ -74,6 +74,8 @@ int main(int argc, char* argv[]) {
             quit = true;
         }
       
+		//update game
+		game->Update(whermst::GetEngine().GetTime().GetDeltaTime());
       
         //draw
 		whermst::GetEngine().GetRenderer().Clear(); // Clear the screen

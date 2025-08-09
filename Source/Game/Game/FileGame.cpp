@@ -5,6 +5,7 @@
 #include "Framework/Actor.h"  
 #include "Core/StringHelper.h"  
 #include "Engine.h"  
+#include "../Cursor.h"
 
 bool FileGame::Initialize()  
 {  
@@ -17,13 +18,18 @@ bool FileGame::Initialize()
 
 void FileGame::Update(float dt)  
 {  
+
 	switch (gameState)  
 	{  
 	case GameState::Initialize:  
 		gameState = GameState::Title;  
 		break;  
 	case GameState::Title:
-		
+	{
+		whermst::Transform cursorTransform{ whermst::GetEngine().GetInput().GetMousePosition(), 0, .02f };
+		auto cursor = std::make_unique<Cursor>(cursorTransform, whermst::Resources().Get<whermst::Texture>("Assets/emptyFolder.png", whermst::GetEngine().GetRenderer()));
+		_scene->AddActor(std::move(cursor));
+	}
 		break;  
 	case GameState::Game:  
 		// Main game logic  

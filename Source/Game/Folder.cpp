@@ -5,7 +5,7 @@
 void Folder::OnCollision(Actor* other)
 {
 	if (other->tag != this->tag) {
-		
+		Logger::Info("Folder: {} collided with {}", this->_name, other->name);
 	}
 }
 

@@ -6,7 +6,12 @@
 class Cursor : public whermst::Actor {
 public:
 	Cursor() = default;
+	Cursor(const whermst::Transform& transform, whermst::res_t<whermst::Texture> texture) : Actor{ transform, texture } {}
 	~Cursor() = default;
+
+	void OnCollision(Actor* other) override {
+		Logger::Info("Cursor: {} collided with {}", this->name, other->name);
+	}
 private:
 	std::vector<whermst::vec2> cursor{ {0,0} };
 	whermst::Model model = whermst::Model(cursor);
