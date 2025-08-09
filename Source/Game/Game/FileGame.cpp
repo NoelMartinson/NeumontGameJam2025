@@ -20,7 +20,7 @@ bool FileGame::Initialize()
 	auto folder1 = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()));
 	folder1->tag = "File";
 	
-	folder->AddFolder(*folder1);
+	folder->AddFolder(folder1.get());
 	_scene->AddActor(std::move(folder1));
 	return true;
 }  

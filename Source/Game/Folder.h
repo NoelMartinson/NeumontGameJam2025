@@ -20,7 +20,6 @@ public:
 	}
 
 	bool AddFolder(Folder* addedFolder) {
-		
 		for (Folder* folder : _folders) {
 			if (folder->_name == addedFolder->_name) return false;
 		}
