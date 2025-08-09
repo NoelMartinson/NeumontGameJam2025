@@ -27,6 +27,11 @@ namespace whermst {
 		 void RemoveAllActors() {
 			 _actors.clear();
 		 }
+		 void RemoveRecentActors() {
+			 if (!_actors.empty()) {
+				 _actors.pop_back();
+			 }
+		 }
 		
 	private:
 		class Game* _game{ nullptr };
