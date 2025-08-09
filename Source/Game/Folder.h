@@ -19,22 +19,13 @@ public:
 		Actor::Update(dt);
 	}
 
-	bool AddFolder(Folder* addedFolder) {
-		for (Folder* folder : _folders) {
-			if (folder->_name == addedFolder->_name) return false;
-		}
-		_folders.push_back(addedFolder);
-		addedFolder->_parentFolder = this;
-
-		
-		return true;
-	}
+	bool AddFolder(Folder* addedFolder);
 
 	void OnCollision(Actor* other) override;
 
 	void Draw(class whermst::Renderer& renderer);
 
-	void OpenFolder(const Folder& folder, Folder& workingFolder);
+	void OpenFolder(const Folder* folder, Folder*& workingFolder);
 
 private:
 	std::string _name;

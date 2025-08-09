@@ -20,7 +20,7 @@ public:
 	void OnCollision(Actor* other) override {
 		Logger::Info("Cursor: {} collided with {}", this->name, other->name);
 		if (other->tag == "File") {
-			dynamic_cast<Folder*>(other)->OpenFolder(*dynamic_cast<Folder*>(other), FileGame::GetWorkingFolder());
+			//dynamic_cast<Folder*>(other)->OpenFolder(*dynamic_cast<Folder*>(other), FileGame::GetWorkingFolder());
 		}
 	}
 private:
