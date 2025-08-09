@@ -14,11 +14,15 @@ public:
 		_texture = texture;
 	}
 
-	bool AddFolder(Folder& addedFolder) {
-		std::cout << "_folders size: " << _folders.size() << "\n";
-		bool yes = true;
-		for (Folder& folder : _folders) {
-			if (folder._name != "Steve Jobs" && folder._name == addedFolder._name) yes = false;
+	void Update(float dt) override {
+		// Update logic for the folder, if any
+		Actor::Update(dt);
+	}
+
+	bool AddFolder(Folder addedFolder) {
+		bool yes = false;
+		for (Folder folder : _folders) {
+			if (folder._name == addedFolder._name) yes = true;
 		}
 		if (yes) {
 			_folders.push_back(addedFolder);

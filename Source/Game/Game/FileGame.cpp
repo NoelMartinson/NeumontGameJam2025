@@ -46,7 +46,8 @@ void FileGame::Update(float dt)
 	case GameState::GameOver:  
 		// Game over logic  
 		break;  
-	}  
+	}
+	_scene->Update(dt, 1.0f);
 }  
 
 void FileGame::Shutdown()  

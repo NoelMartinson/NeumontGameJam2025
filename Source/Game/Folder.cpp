@@ -5,7 +5,7 @@
 
 void Folder::OnCollision(Actor* other)
 {
-	if (other->tag != this->tag) {
+	if (whermst::tolower(other->tag) != whermst::tolower(tag)) {
 		Logger::Info("Folder: {} collided with {}", this->_name, other->name);
 	}
 }

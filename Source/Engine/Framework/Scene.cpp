@@ -13,15 +13,6 @@ namespace whermst {
 		for (auto& actor : _actors) {
 			actor->Update(dt);
 		}
-		// Remove destroyed actors from the scene
-		for (auto iter = _actors.begin(); iter != _actors.end();) {
-			if ((*iter)->destroyed) {
-				iter = _actors.erase(iter);
-			}			   
-			else {
-				iter++;
-			}
-		}
 
 		//check for collisions
 		for (auto& actorA : _actors) {
