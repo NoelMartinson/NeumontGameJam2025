@@ -24,6 +24,8 @@ bool FileGame::Initialize()
 
 	folderPtr->AddFolder(std::move(folder1));
 
+
+
 	_namesText = std::make_unique<whermst::Text>(whermst::Resources().Get<whermst::Font>("Assets/Arial.ttf", 40));
 
 	whermst::Transform cursorTransform{ whermst::GetEngine().GetInput().GetMousePosition(), 0, .2f };
