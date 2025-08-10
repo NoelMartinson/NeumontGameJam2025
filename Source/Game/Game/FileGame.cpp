@@ -24,7 +24,7 @@ bool FileGame::Initialize()
 
 	folderPtr->AddFolder(std::move(folder1));
 
-	_namesText = std::make_unique<whermst::Text>(whermst::Resources().Get<whermst::Font>("Assets/Arial.ttf", 40));
+	_namesText = std::make_unique<whermst::Text>(whermst::Resources().Get<whermst::Font>("Assets/FileName.ttf", 40));
 
 	whermst::Transform cursorTransform{ whermst::GetEngine().GetInput().GetMousePosition(), 0, .2f };
 	auto cursor = std::make_unique<Cursor>(cursorTransform, whermst::Resources().Get<whermst::Texture>("Assets/emptyFolder.png", whermst::GetEngine().GetRenderer()));

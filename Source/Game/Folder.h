@@ -2,6 +2,7 @@
 #include "Core/StringHelper.h"
 #include "Framework/Actor.h"
 #include "Renderer/Font.h"
+#include "Renderer/Text.h"
 #include <vector>
 #include <iostream>
 
@@ -55,6 +56,8 @@ private:
 	Folder* _parentFolder = nullptr;
 
 	static Folder* _workingFolder;
+
+	std::unique_ptr<whermst::Text> _fileNameText;
 
 	//static std::shared_ptr<whermst::Font> fileFont;
 
