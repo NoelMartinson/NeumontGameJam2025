@@ -3,6 +3,7 @@
 
 bool GameFile::AddFolder(std::unique_ptr<Folder> addedFolder)
 {
+
     return false;
 }
 
