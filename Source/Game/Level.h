@@ -46,7 +46,12 @@ public:
 		}
 				break;
 		case level::LEVEL1:
-			// Load Level 1
+		{
+			whermst::Transform transform{ whermst::vec2{whermst::GetEngine().GetRenderer().GetWidth() * 0.2f, whermst::GetEngine().GetRenderer().GetHeight() * 0.2f}, 0, 2 };
+			std::unique_ptr<Folder> Captcha = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()), "Captcha", true);
+			Captcha->tag = "File";
+			scene->AddActor(std::move(Captcha));
+		}
 			break;
 		case level::LEVEL2:
 			// Load Level 2
