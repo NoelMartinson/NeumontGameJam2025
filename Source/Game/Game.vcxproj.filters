@@ -30,5 +30,8 @@
     <ClInclude Include="Cursor.h">
       <Filter>Source\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Source\Game</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

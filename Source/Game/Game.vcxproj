@@ -168,6 +168,7 @@
     <ClInclude Include="Cursor.h" />
     <ClInclude Include="Folder.h" />
     <ClInclude Include="Game\FileGame.h" />
+    <ClInclude Include="Level.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
