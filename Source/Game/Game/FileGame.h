@@ -21,7 +21,7 @@ public:
 
 	bool Initialize() override;
 	void Update(float dt) override;
-    static Folder& GetWorkingFolder(FileGame& instance) { return instance.workingFolder; }
+    
 	void Shutdown() override;
 	void Draw(class whermst::Renderer& renderer);
 
@@ -29,6 +29,5 @@ public:
 
 private:
 	GameState gameState = GameState::Initialize;
-	Folder workingFolder = Folder();
 	
 };

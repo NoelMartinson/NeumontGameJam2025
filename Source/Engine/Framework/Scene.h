@@ -12,9 +12,9 @@ namespace whermst {
 	public:
 		Scene(Game* game) : _game{ game } {}
 
-		void Update(float dt, float scale = 1);
-		void Draw(class Renderer& renderer);
-		void AddActor(std::unique_ptr< Actor> actor);
+		virtual void Update(float dt, float scale = 1);
+		virtual void Draw(class Renderer& renderer);
+		virtual void AddActor(std::unique_ptr< Actor> actor);
 
 		  template <typename T = Actor>
 		  T* GetActorByName(const std::string& name);
