@@ -13,13 +13,6 @@ void Folder::OnCollision(Actor* other)
 	if (whermst::tolower(other->tag) != whermst::tolower(tag)) {
 		Logger::Info("Folder: {} collided with {}", this->name, other->name);
 		std::string folderName = name;
-
-		/*if (whermst::file::Exists(folderName)) {
-			Logger::Info("Folder: {} exists", folderName);
-		}
-		else {
-			Logger::Warning("Folder: {} does not exist", folderName);
-		}*/
 	}
 }
 
@@ -32,7 +25,7 @@ void Folder::OpenFolder(const Folder* openedFolder, Folder*& workingFolder)
 				//return if mini-game is failed
 			}
 			
-				workingFolder = folder; // switch current view
+			workingFolder = folder; // switch current view
 			
 			return;
 		}

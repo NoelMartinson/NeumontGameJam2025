@@ -13,6 +13,8 @@ public:
 		_encrypted = isEncrypted;
 		_texture = texture;
 		if (_workingFolder == nullptr) _workingFolder = this;
+
+		return;
 	}
 
 	void Update(float dt) override {
@@ -29,6 +31,10 @@ public:
 	void OpenFolder(const Folder* folder, Folder*& workingFolder);
 
 	static void Initialize() { _workingFolder = nullptr; }
+
+	static const Folder* getWorkingFolder() {
+		return _workingFolder;
+	}
 
 private:
 	

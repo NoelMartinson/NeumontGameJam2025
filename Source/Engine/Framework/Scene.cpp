@@ -2,6 +2,7 @@
 #include "Actor.h"
 #include "Core/StringHelper.h"
 #include "Renderer/Renderer.h"
+#include "../Game/Folder.h"
 
 
 namespace whermst {
@@ -15,8 +16,12 @@ namespace whermst {
 		}
 
 		//check for collisions
+
 		for (auto& actorA : _actors) {
 			for (auto& actorB : _actors) {
+				if (dynamic_cast<Folder*>(actorA.get()) == Folder::getWorkingFolder() || dynamic_cast<Folder*>(actorB.get())) {
+					continue;
+				}
 				if (actorA == actorB || (actorA->destroyed || actorB->destroyed)) continue;
 
 				float distance = (actorA->transform.position - actorB->transform.position).Length();
