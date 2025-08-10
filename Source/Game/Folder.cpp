@@ -28,13 +28,11 @@ void Folder::OpenFolder(Folder* openedFolder, Folder*& workingFolder)
 		if (openedFolder->_encrypted) {
 			// trigger mini-game later
 			//return if mini-game is failed
-		}
-			
+		}	
 		_workingFolder = openedFolder; // switch current view
 			
 		return;
 	}
-	
 }
 
 void Folder::Draw(whermst::Renderer& renderer) {
