@@ -62,6 +62,5 @@ bool Folder::AddFolder(std::unique_ptr<Folder> addedFolder) {
 	_scene->AddActor(std::move(addedFolder));
 
 
-
 	return true;
 }
