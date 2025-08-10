@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include "Scene.h"
 
 namespace whermst
 {

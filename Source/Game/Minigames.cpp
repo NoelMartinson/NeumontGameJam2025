@@ -8,6 +8,7 @@ void Minigames::StartMinigame(MinigameType type)
 	switch (type)
 	{
 	case MinigameType::Captcha:
+	{
 		int captcha = whermst::random::getInt(0, 3); // Randomly select a captcha
 		switch (static_cast<Captcha>(captcha))
 		{
@@ -28,6 +29,7 @@ void Minigames::StartMinigame(MinigameType type)
 			Logger::Info("Starting Wrans captcha minigame");
 			break;
 		}
+	}
 		break;
 	case MinigameType::Maze:
 		// Start Maze minigame

@@ -1,12 +1,12 @@
 #pragma once
 #include "Core\StringHelper.h"
+#include "Actor.h"
 #include <vector>
 #include <memory>
 #include <string>
 #include <list>
 
 namespace whermst {
-	class Actor;
 	class Game;
 	class Scene {
 	public:

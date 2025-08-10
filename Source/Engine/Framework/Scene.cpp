@@ -1,5 +1,4 @@
 #include "Scene.h"
-#include "Actor.h"
 #include "Core/StringHelper.h"
 #include "Renderer/Renderer.h"
 #include "../Game/Folder.h"

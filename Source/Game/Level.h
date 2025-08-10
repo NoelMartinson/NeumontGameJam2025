@@ -5,6 +5,7 @@
 #include "Folder.h"
 #include "Engine.h"
 #include "Framework/Scene.h"
+#include "Framework/Actor.h"
 
 class Level {
 public:
