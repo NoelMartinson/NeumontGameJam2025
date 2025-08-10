@@ -18,6 +18,7 @@ namespace whermst::file
 
         return !ec && result;
     }
+
     std::string GetCurrentDirectory()
     {
         std::error_code ec;
