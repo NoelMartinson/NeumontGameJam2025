@@ -6,6 +6,7 @@
 #include "Core/StringHelper.h"  
 #include "Engine.h"  
 #include "../Cursor.h"
+#include "Renderer/Text.h"
 
 bool FileGame::Initialize()  
 { 
@@ -22,6 +23,8 @@ bool FileGame::Initialize()
 	folder1->tag = "File";
 
 	folderPtr->AddFolder(std::move(folder1));
+
+	_namesText = std::make_unique<whermst::Text>(whermst::Resources().Get<whermst::Font>("Assets/Arial.ttf", 40));
 
 	whermst::Transform cursorTransform{ whermst::GetEngine().GetInput().GetMousePosition(), 0, .2f };
 	auto cursor = std::make_unique<Cursor>(cursorTransform, whermst::Resources().Get<whermst::Texture>("Assets/emptyFolder.png", whermst::GetEngine().GetRenderer()));
@@ -64,4 +67,6 @@ void FileGame::Shutdown()
 
 void FileGame::Draw(class whermst::Renderer& renderer) {  
 	_scene->Draw(renderer);
+	_namesText->Create(renderer, Folder::getWorkingFolder()->name, { 0, 0, 0 });
+	_namesText->Draw(renderer, 20, 20);
 }

@@ -29,5 +29,7 @@ public:
 
 private:
 	GameState gameState = GameState::Initialize;
+
+	std::unique_ptr<whermst::Text> _namesText;
 	
 };
