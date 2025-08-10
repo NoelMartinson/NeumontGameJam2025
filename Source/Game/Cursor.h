@@ -1,6 +1,7 @@
 #pragma once
 #include "Renderer/Model.h"
 #include "Framework/Actor.h"
+#include "Input/InputSystem.h"
 #include "Core/Logger.h"
 
 
@@ -13,13 +14,14 @@ public:
 
 	void Update(float dt) override {
 		// Update cursor position based on input
+		transform.position = whermst::GetEngine().GetInput().GetMousePosition();
 
 		Actor::Update(dt);
 	}
 
 	void OnCollision(Actor* other) override {
-		Logger::Info("Cursor: {} collided with {}", this->name, other->name);
 		if (other->tag == "File") {
+			Logger::Info("Cursor: {} collided with {}", this->name, other->name);
 			//dynamic_cast<Folder*>(other)->OpenFolder(*dynamic_cast<Folder*>(other), FileGame::GetWorkingFolder());
 		}
 	}

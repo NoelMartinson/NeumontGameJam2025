@@ -8,21 +8,28 @@
 #include "../Cursor.h"
 
 bool FileGame::Initialize()  
-{  
+{ 
+	
 	_scene = std::make_unique<whermst::Scene>(this); 
 	std::unique_ptr<Folder> folder;
 	whermst::Transform transform{ whermst::vec2{whermst::GetEngine().GetRenderer().GetWidth() * 0.2f, whermst::GetEngine().GetRenderer().GetHeight() * 0.2f}, 0, 2 };
-	folder = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()));
+	folder = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()), "root");
 	folder->tag = "File";
 	Folder* folderPtr = folder.get();
 	_scene->AddActor(std::move(folder));
-	//_scene = std::make_unique<whermst::Scene>(this);
 	whermst::Transform transform1{ whermst::vec2{whermst::GetEngine().GetRenderer().GetWidth() * 0.2f, whermst::GetEngine().GetRenderer().GetHeight() * 0.2f}, 0, 2 };
-	auto folder1 = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()));
+	std::unique_ptr<Folder> folder1 = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()), "test1");
 	folder1->tag = "File";
+
+	folderPtr->AddFolder(std::move(folder1));
+
+	whermst::Transform cursorTransform{ whermst::GetEngine().GetInput().GetMousePosition(), 0, .2f };
+	auto cursor = std::make_unique<Cursor>(cursorTransform, whermst::Resources().Get<whermst::Texture>("Assets/emptyFolder.png", whermst::GetEngine().GetRenderer()));
+	cursor->name = "Cursor";
+	cursor->tag = "Cursor";
+	_scene->AddActor(std::move(cursor));
 	
-	folderPtr->AddFolder(folder1.get());
-	_scene->AddActor(std::move(folder1));
+	
 	return true;
 }  
 
@@ -36,11 +43,7 @@ void FileGame::Update(float dt)
 		break;  
 	case GameState::Title:
 	{
-		whermst::Transform cursorTransform{ whermst::GetEngine().GetInput().GetMousePosition(), 0, .2f };
-		auto cursor = std::make_unique<Cursor>(cursorTransform, whermst::Resources().Get<whermst::Texture>("Assets/emptyFolder.png", whermst::GetEngine().GetRenderer()));
-		cursor->name = "Cursor";
-		cursor->tag = "Cursor";
-		_scene->AddActor(std::move(cursor));
+		
 	}
 		break;  
 	case GameState::Game:  
@@ -59,7 +62,4 @@ void FileGame::Shutdown()
 
 void FileGame::Draw(class whermst::Renderer& renderer) {  
 	_scene->Draw(renderer);
-	if(_scene->GetActorByName<Cursor>("Cursor")) {
-		_scene->RemoveRecentActors();
-	}
 }

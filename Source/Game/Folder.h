@@ -8,10 +8,11 @@
 class Folder : public whermst::Actor{
 public:
 	Folder() = default;
-	Folder(const whermst::Transform& transform, whermst::res_t<whermst::Texture> texture, std::string name = "Steve Jobs", bool isEncrypted = false) : Actor{transform, texture} {
-		_name =  name;
+	Folder(const whermst::Transform& transform, whermst::res_t<whermst::Texture> texture, std::string name, bool isEncrypted = false) : Actor{transform, texture} {
+		this->name =  name;
 		_encrypted = isEncrypted;
 		_texture = texture;
+		if (_workingFolder == nullptr) _workingFolder = this;
 	}
 
 	void Update(float dt) override {
@@ -19,19 +20,23 @@ public:
 		Actor::Update(dt);
 	}
 
-	bool AddFolder(Folder* addedFolder);
+	bool AddFolder(std::unique_ptr<Folder> addedFolder);
 
 	void OnCollision(Actor* other) override;
 
-	void Draw(class whermst::Renderer& renderer);
+	void Draw(class whermst::Renderer& renderer) override;
 
 	void OpenFolder(const Folder* folder, Folder*& workingFolder);
 
+	static void Initialize() { _workingFolder = nullptr; }
+
 private:
-	std::string _name;
+	
 	std::vector<Folder*> _folders;
 	bool _encrypted;
 
 	Folder* _parentFolder = nullptr;
+
+	static Folder* _workingFolder;
 
 };
