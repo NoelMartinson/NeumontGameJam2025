@@ -30,6 +30,10 @@ namespace whermst
 			return _lives;
 		}
 
+		Scene* GetScene() const {
+			return _scene.get();
+		}
+
 	protected:
 		std::unique_ptr<class Scene> _scene;
 		int _score{ 0 };
