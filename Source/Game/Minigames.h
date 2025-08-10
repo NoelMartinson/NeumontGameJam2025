@@ -7,7 +7,8 @@ class Minigames {
 public:
 	enum class MinigameType {
 		Captcha,
-		Maze
+		Maze,
+		Riddle
 	};
 	enum class Captcha {
 		CraigsList,

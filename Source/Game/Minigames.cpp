@@ -85,6 +85,24 @@ void Minigames::StartMinigame(MinigameType type, whermst::Renderer& renderer)
 	case MinigameType::Maze:
 		// Start Maze minigame
 		break;
+	case MinigameType::Riddle:
+	{
+		texture = whermst::Resources().Get<whermst::Texture>("Cataracts.png", whermst::GetEngine().GetRenderer());
+		whermst::GetEngine().GetInput().StartTextInput(renderer);
+		std::string riddleAnswer;
+		while (_isMinigameActive) {
+			riddleAnswer = whermst::GetEngine().GetInput().GetTextInput();
+			if (!riddleAnswer.empty() && whermst::GetEngine().GetInput().GetKeyPressed(SDL_SCANCODE_RETURN)) {
+				if (whermst::tolower(riddleAnswer) == whermst::tolower("cataracts") || whermst::tolower(riddleAnswer) == whermst::tolower("darkness")) {
+					whermst::GetEngine().GetInput().StopTextInput(renderer);
+					Logger::Info("Riddle solved successfully");
+					_isMinigameActive = false;
+				}
+			}
+
+		}
+	}
+	break;
 	default:
 		Logger::Error("Unknown minigame type: {}", static_cast<int>(type));
 		break;
