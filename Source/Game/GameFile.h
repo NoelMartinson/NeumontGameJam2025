@@ -11,5 +11,5 @@ public:
 	void Draw(class whermst::Renderer& renderer) override;
 
 private:
-
+	std::string text;
 };

@@ -51,7 +51,7 @@ void Folder::Draw(whermst::Renderer& renderer) {
 			renderer.DrawTexture(folder->_texture.get(), folder->transform.position.x, folder->transform.position.y, folder->transform.rotation, folder->transform.scale);
 			_fileNameText->Create(renderer, folder -> name, { 1, 1, 1 });
 			_fileNameText->Draw(renderer, position.x + 80, position.y, 1.0f);
-			position.y += 100;
+			position.y += 150;
 		}
 	}
 }

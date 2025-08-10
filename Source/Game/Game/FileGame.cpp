@@ -14,8 +14,9 @@ bool FileGame::Initialize()
 	_scene = std::make_unique<whermst::Scene>(this); 
 	Level level = Level();
 	level.GoToLevel(_scene.get(), 0); // Initialize the root folder
-
+	
 	_namesText = std::make_unique<whermst::Text>(whermst::Resources().Get<whermst::Font>("Assets/FileName.ttf", 40));
+
 
 	whermst::Transform cursorTransform{ whermst::GetEngine().GetInput().GetMousePosition(), 0, .2f };
 	auto cursor = std::make_unique<Cursor>(cursorTransform, whermst::Resources().Get<whermst::Texture>("Assets/emptyFolder.png", whermst::GetEngine().GetRenderer()));
