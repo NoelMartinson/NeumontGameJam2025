@@ -17,9 +17,9 @@ void Minigames::StartMinigame(MinigameType type, whermst::Renderer& renderer)
 			switch (static_cast<Captcha>(captcha))
 			{
 			case Captcha::CraigsList:
-				// Start CraigsList captcha minigame
+			{// Start CraigsList captcha minigame
 				Logger::Info("Starting CraigsList captcha minigame");
-				texture = std::make_unique<whermst::Texture>(whermst::Resources().Get<whermst::Texture>("Assets/CraigsList.png", whermst::GetEngine().GetRenderer()));
+				texture = whermst::Resources().Get<whermst::Texture>("CraigsList.png", whermst::GetEngine().GetRenderer());
 				whermst::GetEngine().GetInput().StartTextInput(renderer);
 				guess = whermst::GetEngine().GetInput().GetTextInput();
 				if (!guess.empty() && whermst::GetEngine().GetInput().GetKeyPressed(SDL_SCANCODE_RETURN)) {
@@ -28,12 +28,14 @@ void Minigames::StartMinigame(MinigameType type, whermst::Renderer& renderer)
 						Logger::Info("CraigsList captcha solved successfully");
 						_isMinigameActive = false;
 					}
+
 				}
+			}
 				break;
 			case Captcha::GR528:
-				// Start GR528 captcha minigame
+			{// Start GR528 captcha minigame
 				Logger::Info("Starting GR528 captcha minigame");
-				texture = std::make_unique<whermst::Texture>(whermst::Resources().Get<whermst::Texture>("Assets/GR528.png", whermst::GetEngine().GetRenderer()));
+				texture = whermst::Resources().Get<whermst::Texture>("GR528.png", whermst::GetEngine().GetRenderer());
 				whermst::GetEngine().GetInput().StartTextInput(renderer);
 				guess = whermst::GetEngine().GetInput().GetTextInput();
 				if (!guess.empty() && whermst::GetEngine().GetInput().GetKeyPressed(SDL_SCANCODE_RETURN)) {
@@ -43,11 +45,14 @@ void Minigames::StartMinigame(MinigameType type, whermst::Renderer& renderer)
 						_isMinigameActive = false;
 					}
 				}
+				}
 				break;
 			case Captcha::ejujle:
-				// Start ejujle captcha minigame
+			{// Start ejujle captcha minigame
 				Logger::Info("Starting ejujle captcha minigame");
-				texture = std::make_unique<whermst::Texture>(whermst::Resources().Get<whermst::Texture>("Assets/ejujle.png", whermst::GetEngine().GetRenderer()));
+				texture = whermst::Resources().Get<whermst::Texture>("ejujle.png", whermst::GetEngine().GetRenderer());
+				whermst::GetEngine().GetInput().StartTextInput(renderer);
+				guess = whermst::GetEngine().GetInput().GetTextInput();
 				if (!guess.empty() && whermst::GetEngine().GetInput().GetKeyPressed(SDL_SCANCODE_RETURN)) {
 					if (whermst::tolower(guess) == whermst::tolower("ejujle")) {
 						whermst::GetEngine().GetInput().StopTextInput(renderer);
@@ -55,11 +60,15 @@ void Minigames::StartMinigame(MinigameType type, whermst::Renderer& renderer)
 						_isMinigameActive = false;
 					}
 				}
+				}
 				break;
 			case Captcha::Wrans:
-				// Start Wrans captcha minigame
+
+			{// Start Wrans captcha minigame
 				Logger::Info("Starting Wrans captcha minigame");
-				texture = std::make_unique<whermst::Texture>(whermst::Resources().Get<whermst::Texture>("Assets/Wrans.png", whermst::GetEngine().GetRenderer()));
+				texture = whermst::Resources().Get<whermst::Texture>("Wrans.png", whermst::GetEngine().GetRenderer());
+				whermst::GetEngine().GetInput().StartTextInput(renderer);
+				guess = whermst::GetEngine().GetInput().GetTextInput();
 				if (!guess.empty() && whermst::GetEngine().GetInput().GetKeyPressed(SDL_SCANCODE_RETURN)) {
 					if (whermst::tolower(guess) == whermst::tolower("wrans")) {
 						whermst::GetEngine().GetInput().StopTextInput(renderer);
@@ -67,6 +76,7 @@ void Minigames::StartMinigame(MinigameType type, whermst::Renderer& renderer)
 						_isMinigameActive = false;
 					}
 				}
+			}
 				break;
 			}
 		}
