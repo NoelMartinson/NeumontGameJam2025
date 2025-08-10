@@ -11,7 +11,6 @@
 
 bool FileGame::Initialize()  
 { 
-	
 	_scene = std::make_unique<whermst::Scene>(this); 
 	Level level = Level();
 	level.GoToLevel(_scene.get(), 0); // Initialize the root folder
@@ -57,8 +56,11 @@ void FileGame::Shutdown()
 {  
 }  
 
-void FileGame::Draw(class whermst::Renderer& renderer) {  
-	_scene->Draw(renderer);
+void FileGame::Draw(class whermst::Renderer& renderer) { 
+	if (_minigames->IsMinigameActive()) {
+		_minigames->Draw(renderer);
+	}
+		_scene->Draw(renderer);
 	_namesText->Create(renderer, Folder::getWorkingFolder()->name, { 0, 0, 0 });
 	_namesText->Draw(renderer, 20, 20);
 }

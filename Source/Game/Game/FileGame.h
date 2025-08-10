@@ -4,8 +4,9 @@
 #include "Renderer/Text.h"
 #include "Audio/AudioSystem.h"
 #include "../Folder.h"
-#include <memory>
 #include "Math/Transform.h"
+#include "Minigames.h"
+#include <memory>
 
 class FileGame : public whermst::Game {
 public:
@@ -31,5 +32,7 @@ private:
 	GameState gameState = GameState::Initialize;
 
 	std::unique_ptr<whermst::Text> _namesText;
+
+	std::unique_ptr<Minigames> _minigames = std::make_unique<Minigames>();
 	
 };

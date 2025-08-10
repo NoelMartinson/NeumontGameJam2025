@@ -1,4 +1,7 @@
 #pragma once
+#include "Resources/Resource.h"
+#include "Renderer/Texture.h"
+#include "Renderer/Renderer.h"
 
 class Minigames {
 public:
@@ -14,10 +17,15 @@ public:
 	};
 public:
 	Minigames() = default;
-	void StartMinigame(MinigameType type);
-	bool IsMinigameActive() const;
-	MinigameType GetCurrentMinigameType() const { return _currentMinigameType; };
+	void StartMinigame(MinigameType type, whermst::Renderer& renderer);
+	bool IsMinigameActive() { return _isMinigameActive; }
+	void SetMinigameActive(bool active) { _isMinigameActive = active; }
+	MinigameType GetCurrentMinigameType() const { return _currentMinigameType; }
+
+	void Draw(whermst::Renderer& renderer);
 
 private:
 	MinigameType _currentMinigameType{ MinigameType::Captcha };
+	bool _isMinigameActive{ false };
+	std::unique_ptr<whermst::Texture> texture;
 };
