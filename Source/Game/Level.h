@@ -26,13 +26,23 @@ public:
 			whermst::Transform transform{ whermst::vec2{whermst::GetEngine().GetRenderer().GetWidth() * 0.2f, whermst::GetEngine().GetRenderer().GetHeight() * 0.2f}, 0, 2 };
 			folder = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()), "root");
 			folder->tag = "File";
-			Folder* folderPtr = folder.get();
+			Folder* rootPtr = folder.get();
 			scene->AddActor(std::move(folder));
-			whermst::Transform transform1{ whermst::vec2{whermst::GetEngine().GetRenderer().GetWidth() * 0.2f, whermst::GetEngine().GetRenderer().GetHeight() * 0.2f}, 0, 2 };
-			std::unique_ptr<Folder> folder1 = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()), "test1");
-			folder1->tag = "File";
 
-			folderPtr->AddFolder(std::move(folder1));
+			std::unique_ptr<Folder> level1 = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()), "Level1");
+			std::unique_ptr<Folder> level2 = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()), "Level2");
+			std::unique_ptr<Folder> level3 = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()), "Level3");
+			level1->tag = "File";
+			level2->tag = "File";
+			level3->tag = "File";
+
+
+			Folder* level1Ptr = level1.get();
+			rootPtr->AddFolder(std::move(level1));
+			rootPtr->AddFolder(std::move(level2));
+			rootPtr->AddFolder(std::move(level3));
+
+
 		}
 				break;
 		case level::LEVEL1:
