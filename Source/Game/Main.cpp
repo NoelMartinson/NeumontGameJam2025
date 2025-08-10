@@ -44,14 +44,19 @@ int main(int argc, char* argv[]) {
     //initialize Text
     
 
+
+    //set working directory
+    whermst::file::SetCurrentDirectory("Assets");
+
+
     //initialize image
-    auto BKG = whermst::Resources().Get<whermst::Texture>("Assets/Background(temp).png", whermst::GetEngine().GetRenderer());
+    auto BKG = whermst::Resources().Get<whermst::Texture>("Background(temp).png", whermst::GetEngine().GetRenderer());
 
     SDL_Event e;
     bool quit = false;
 
 
-    whermst::GetEngine().GetAudio().Load("Assets/backgroundMusic.mp3", "background");
+    whermst::GetEngine().GetAudio().Load("backgroundMusic.mp3", "background");
     whermst::GetEngine().GetAudio().PlaySound("background");
 
 

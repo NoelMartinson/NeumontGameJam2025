@@ -16,8 +16,8 @@ namespace whermst {
 		virtual void Draw(class Renderer& renderer);
 		virtual void AddActor(std::unique_ptr< Actor> actor);
 
-		  template <typename T = Actor>
-		  T* GetActorByName(const std::string& name);
+		template <typename T = Actor>
+		T* GetActorByName(const std::string& name);
 
 
 		 template <typename T = Actor>

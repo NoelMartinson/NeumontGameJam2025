@@ -19,6 +19,9 @@
     <ClCompile Include="Folder.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
+    <ClCompile Include="GameFile.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\FileGame.h">
@@ -28,6 +31,9 @@
       <Filter>Source\Game</Filter>
     </ClInclude>
     <ClInclude Include="Cursor.h">
+      <Filter>Source\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFile.h">
       <Filter>Source\Game</Filter>
     </ClInclude>
   </ItemGroup>
