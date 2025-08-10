@@ -28,5 +28,4 @@ private:
 	MinigameType _currentMinigameType{ MinigameType::Captcha };
 	bool _isMinigameActive{ false };
 	std::shared_ptr<whermst::Texture> texture;
-	whermst::Texture* texturep;
 };
