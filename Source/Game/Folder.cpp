@@ -14,22 +14,27 @@ void Folder::OnCollision(Actor* other)
 		Logger::Info("Folder: {} collided with {}", this->name, other->name);
 		std::string folderName = name;
 	}
-}
-
-void Folder::OpenFolder(const Folder* openedFolder, Folder*& workingFolder)
-{
-	for (Folder* folder : _folders) {
-		if (openedFolder && openedFolder->name == folder->name) {
-			if (folder->_encrypted) {
-				// trigger mini-game later
-				//return if mini-game is failed
-			}
-			
-			workingFolder = folder; // switch current view
-			
-			return;
+	if (whermst::tolower(other->tag) == "cursor") {
+		if (whermst::GetEngine().GetInput().GetMouseButtonPressed(whermst::InputSystem::MouseButton::Left)) {
+			OpenFolder(this, _workingFolder);
 		}
 	}
+}
+
+void Folder::OpenFolder(Folder* openedFolder, Folder*& workingFolder)
+{
+	Logger::Info("Folder: this folder is opening");
+	if (openedFolder) {
+		if (openedFolder->_encrypted) {
+			// trigger mini-game later
+			//return if mini-game is failed
+		}
+			
+		_workingFolder = openedFolder; // switch current view
+			
+		return;
+	}
+	
 }
 
 void Folder::Draw(whermst::Renderer& renderer) {
@@ -47,6 +52,7 @@ void Folder::Draw(whermst::Renderer& renderer) {
 
 
 bool Folder::AddFolder(std::unique_ptr<Folder> addedFolder) {
+	
 	for (Folder* folder : _folders) {
 		if (folder->name == addedFolder->name) return false;
 	}

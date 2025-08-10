@@ -28,7 +28,7 @@ public:
 
 	void Draw(class whermst::Renderer& renderer) override;
 
-	void OpenFolder(const Folder* folder, Folder*& workingFolder);
+	void OpenFolder(Folder* folder, Folder*& workingFolder);
 
 	static void Initialize() { _workingFolder = nullptr; }
 
