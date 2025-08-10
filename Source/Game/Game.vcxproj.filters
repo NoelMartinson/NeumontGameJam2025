@@ -19,8 +19,11 @@
     <ClCompile Include="Folder.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Minigames.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
     <ClCompile Include="GameFile.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +37,12 @@
       <Filter>Source\Game</Filter>
     </ClInclude>
     <ClInclude Include="GameFile.h">
+      <Filter>Source\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Source\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Minigames.h">
       <Filter>Source\Game</Filter>
     </ClInclude>
   </ItemGroup>

@@ -7,22 +7,14 @@
 #include "Engine.h"  
 #include "../Cursor.h"
 #include "Renderer/Text.h"
+#include "../Level.h"
 
 bool FileGame::Initialize()  
 { 
 	
 	_scene = std::make_unique<whermst::Scene>(this); 
-	std::unique_ptr<Folder> folder;
-	whermst::Transform transform{ whermst::vec2{whermst::GetEngine().GetRenderer().GetWidth() * 0.2f, whermst::GetEngine().GetRenderer().GetHeight() * 0.2f}, 0, 2 };
-	folder = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()), "root");
-	folder->tag = "File";
-	Folder* folderPtr = folder.get();
-	_scene->AddActor(std::move(folder));
-	whermst::Transform transform1{ whermst::vec2{whermst::GetEngine().GetRenderer().GetWidth() * 0.2f, whermst::GetEngine().GetRenderer().GetHeight() * 0.2f}, 0, 2 };
-	std::unique_ptr<Folder> folder1 = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()), "test1");
-	folder1->tag = "File";
-
-	folderPtr->AddFolder(std::move(folder1));
+	Level level = Level();
+	level.GoToLevel(_scene.get(), 0); // Initialize the root folder
 
 	_namesText = std::make_unique<whermst::Text>(whermst::Resources().Get<whermst::Font>("Assets/FileName.ttf", 40));
 
