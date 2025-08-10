@@ -35,6 +35,8 @@ void Folder::OpenFolder(Folder* openedFolder, Folder*& workingFolder)
 	}
 }
 
+
+
 void Folder::Draw(whermst::Renderer& renderer) {
 	if (this == _workingFolder) {
 		float width = (float)renderer.GetWidth();

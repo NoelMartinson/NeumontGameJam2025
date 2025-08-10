@@ -43,7 +43,9 @@ void FileGame::Update(float dt)
 		break;  
 	case GameState::Title:
 	{
-		
+		if (whermst::GetEngine().GetInput().GetKeyDown(SDL_SCANCODE_BACKSPACE)) {
+			Folder::GoBack();
+		}
 	}
 		break;  
 	case GameState::Game:  

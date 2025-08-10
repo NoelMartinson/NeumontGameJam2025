@@ -1,6 +1,7 @@
 #pragma once
 #include "Core/StringHelper.h"
 #include "Framework/Actor.h"
+#include "Renderer/Font.h"
 #include <vector>
 #include <iostream>
 
@@ -30,10 +31,20 @@ public:
 
 	void OpenFolder(Folder* folder, Folder*& workingFolder);
 
-	static void Initialize() { _workingFolder = nullptr; }
+	static void GoBack() {
+		if (_workingFolder->_parentFolder != nullptr) {
+			_workingFolder = _workingFolder->_parentFolder;
+		}
+	}
+
+	static void Initialize() { 
+		_workingFolder = nullptr;
+		
+	}
 
 	static const Folder* getWorkingFolder() {
 		return _workingFolder;
+		//fileFont = std::make_shared<whermst::Font>();
 	}
 
 private:
@@ -44,5 +55,7 @@ private:
 	Folder* _parentFolder = nullptr;
 
 	static Folder* _workingFolder;
+
+	//static std::shared_ptr<whermst::Font> fileFont;
 
 };
