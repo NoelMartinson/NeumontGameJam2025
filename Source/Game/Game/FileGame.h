@@ -5,7 +5,7 @@
 #include "Audio/AudioSystem.h"
 #include "../Folder.h"
 #include "Math/Transform.h"
-#include "Minigames.h"
+#include "../Minigames.h"
 #include <memory>
 
 class FileGame : public whermst::Game {
