@@ -23,7 +23,7 @@ public:
 		case level::ROOT:
 		{
 			std::unique_ptr<Folder> folder;
-			whermst::Transform transform{ whermst::vec2{whermst::GetEngine().GetRenderer().GetWidth() * 0.2f, whermst::GetEngine().GetRenderer().GetHeight() * 0.2f}, 0, 2 };
+			whermst::Transform transform{ whermst::vec2{ whermst::GetEngine().GetRenderer().GetWidth() * 0.2f, whermst::GetEngine().GetRenderer().GetHeight() * 0.2f}, 0, 2 };
 			folder = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()), "root");
 			folder->tag = "File";
 			Folder* rootPtr = folder.get();
