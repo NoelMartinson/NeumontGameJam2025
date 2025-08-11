@@ -4,9 +4,11 @@
 #include "Renderer/Renderer.h"
 #include "Framework/Scene.h"
 #include "Core/File.h"
+#include "Level.h"
 
 
 Folder* Folder::_workingFolder = nullptr;
+Level level = Level();
 
 void Folder::OnCollision(Actor* other)
 {
@@ -16,23 +18,26 @@ void Folder::OnCollision(Actor* other)
 	}
 	if (whermst::tolower(other->tag) == "cursor") {
 		if (whermst::GetEngine().GetInput().GetMouseButtonPressed(whermst::InputSystem::MouseButton::Left)) {
-			OpenFolder(this, _workingFolder);
+			OpenFolder(this, _workingFolder, goesTo);
+			
 		}
 	}
 }
 
-void Folder::OpenFolder(Folder* openedFolder, Folder*& workingFolder)
-{
-	Logger::Info("Folder: this folder is opening");
-	if (openedFolder) {
-		if (openedFolder->_encrypted) {
-			// trigger mini-game later
-			//return if mini-game is failed
-		}	
-		_workingFolder = openedFolder; // switch current view
-			
-		return;
-	}
+void Folder::OpenFolder(Folder* openedFolder, Folder*& workingFolder, int levelNumber)  
+{  
+    Logger::Info("Folder: this folder is opening");  
+    if (openedFolder) {  
+		if (levelNumber != -1) {
+			level.GoToLevel(openedFolder->_scene, levelNumber);
+		}
+        if (openedFolder->_encrypted) {  
+            // trigger mini-game later  
+            // return if mini-game is failed  
+        }  
+        _workingFolder = openedFolder; // switch current view  
+        return;  
+    }  
 }
 
 

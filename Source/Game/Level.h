@@ -33,8 +33,11 @@ public:
 			std::unique_ptr<Folder> level2 = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()), "Level2");
 			std::unique_ptr<Folder> level3 = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()), "Level3");
 			level1->tag = "File";
+			level1->goesTo = 1;
 			level2->tag = "File";
+			level2->goesTo = 2;
 			level3->tag = "File";
+			level3->goesTo = 3;
 
 
 			Folder* level1Ptr = level1.get();
@@ -50,6 +53,8 @@ public:
 			whermst::Transform transform{ whermst::vec2{whermst::GetEngine().GetRenderer().GetWidth() * 0.2f, whermst::GetEngine().GetRenderer().GetHeight() * 0.2f}, 0, 2 };
 			std::unique_ptr<Folder> Captcha = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()), "Captcha", true);
 			Captcha->tag = "File";
+			Captcha->name = "Captcha";
+			Logger::Info("Folder: {} created", Captcha->name);
 			scene->AddActor(std::move(Captcha));
 		}
 			break;
@@ -63,6 +68,7 @@ public:
 			Logger::Error("Invalid level number: {}", levelNumber);
 			break;
 		}
+		Logger::Info("Switched to level: {}", levelNumber);
 	}
 
 private:

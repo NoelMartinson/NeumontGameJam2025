@@ -31,7 +31,7 @@ public:
 
 	virtual void Draw(class whermst::Renderer& renderer) override;
 
-	void OpenFolder(Folder* folder, Folder*& workingFolder);
+	void OpenFolder(Folder* folder, Folder*& workingFolder, int levelNumber = -1);
 
 	static void GoBack() {
 		if (_workingFolder->_parentFolder != nullptr) {
@@ -49,11 +49,15 @@ public:
 		//fileFont = std::make_shared<whermst::Font>();
 	}
 
+public:
+	int goesTo = -1;
+
 private:
 	
 	std::vector<Folder*> _folders;
 	bool _encrypted;
 	bool _corrupted;
+
 
 	Folder* _parentFolder = nullptr;
 
