@@ -9,7 +9,7 @@ bool GameFile::AddFolder(std::unique_ptr<Folder> addedFolder)
 
 void GameFile::Draw(whermst::Renderer& renderer)
 {
-
+    
 }
 
 

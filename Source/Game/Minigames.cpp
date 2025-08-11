@@ -4,16 +4,18 @@
 #include "Engine.h"
 #include "Core/StringHelper.h"
 
-void Minigames::StartMinigame(MinigameType type, whermst::Renderer& renderer)
+bool Minigames::StartMinigame(whermst::Renderer& renderer)
 {
-	_currentMinigameType = type;
+	_currentMinigameType = whermst::random::getInt(0, 1);
+
+	MinigameType type = static_cast<MinigameType>(_currentMinigameType);
 	switch (type)
 	{
 	case MinigameType::Captcha:
 	{
 		std::string guess;
 		int captcha = whermst::random::getInt(0, 3); // Randomly select a captcha
-		while (_isMinigameActive) {
+		
 			switch (static_cast<Captcha>(captcha))
 			{
 			case Captcha::CraigsList:
@@ -26,7 +28,10 @@ void Minigames::StartMinigame(MinigameType type, whermst::Renderer& renderer)
 					if (whermst::tolower(guess) == whermst::tolower("Cralsist")) {
 						whermst::GetEngine().GetInput().StopTextInput(renderer);
 						Logger::Info("CraigsList captcha solved successfully");
-						_isMinigameActive = false;
+						
+					}
+					else {
+						return false;
 					}
 
 				}
@@ -42,7 +47,10 @@ void Minigames::StartMinigame(MinigameType type, whermst::Renderer& renderer)
 					if (whermst::tolower(guess) == whermst::tolower("gr528")) {
 						whermst::GetEngine().GetInput().StopTextInput(renderer);
 						Logger::Info("GR528 captcha solved successfully");
-						_isMinigameActive = false;
+						
+					}
+					else {
+						return false;
 					}
 				}
 				}
@@ -57,7 +65,10 @@ void Minigames::StartMinigame(MinigameType type, whermst::Renderer& renderer)
 					if (whermst::tolower(guess) == whermst::tolower("ejujle")) {
 						whermst::GetEngine().GetInput().StopTextInput(renderer);
 						Logger::Info("ejujle captcha solved successfully");
-						_isMinigameActive = false;
+						
+					}
+					else {
+						return false;
 					}
 				}
 				}
@@ -73,14 +84,17 @@ void Minigames::StartMinigame(MinigameType type, whermst::Renderer& renderer)
 					if (whermst::tolower(guess) == whermst::tolower("wrans")) {
 						whermst::GetEngine().GetInput().StopTextInput(renderer);
 						Logger::Info("Wrans captcha solved successfully");
-						_isMinigameActive = false;
+						
+					}
+					else {
+						return false;
 					}
 				}
 			}
 				break;
 			}
 		}
-	}
+	
 		break;
 	case MinigameType::Maze:
 		// Start Maze minigame
@@ -94,8 +108,5 @@ void Minigames::StartMinigame(MinigameType type, whermst::Renderer& renderer)
 
 void Minigames::Draw(whermst::Renderer& renderer)
 {
-	if (_isMinigameActive)
-	{
-		renderer.DrawTexture(texture.get(), 0, 0);
-	}
+	renderer.DrawTexture(texture.get(), 0, 0);
 }

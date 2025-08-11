@@ -58,10 +58,9 @@ void FileGame::Shutdown()
 }  
 
 void FileGame::Draw(class whermst::Renderer& renderer) { 
-	if (_minigames->IsMinigameActive()) {
-		_minigames->Draw(renderer);
-	}
-		_scene->Draw(renderer);
+	_minigames->Draw(renderer);
+	
+	_scene->Draw(renderer);
 	_namesText->Create(renderer, Folder::getWorkingFolder()->name, { 0, 0, 0 });
 	_namesText->Draw(renderer, 20, 20);
 }

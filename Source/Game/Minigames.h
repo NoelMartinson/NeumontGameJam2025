@@ -17,15 +17,13 @@ public:
 	};
 public:
 	Minigames() = default;
-	void StartMinigame(MinigameType type, whermst::Renderer& renderer);
-	bool IsMinigameActive() { return _isMinigameActive; }
-	void SetMinigameActive(bool active) { _isMinigameActive = active; }
-	MinigameType GetCurrentMinigameType() const { return _currentMinigameType; }
+	bool StartMinigame(whermst::Renderer& renderer);
+	MinigameType GetCurrentMinigameType() const { return static_cast<MinigameType>(_currentMinigameType); }
 
 	void Draw(whermst::Renderer& renderer);
 
 private:
-	MinigameType _currentMinigameType{ MinigameType::Captcha };
-	bool _isMinigameActive{ false };
+	int _currentMinigameType;
+	
 	std::shared_ptr<whermst::Texture> texture;
 };
