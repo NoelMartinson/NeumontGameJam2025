@@ -4,9 +4,11 @@
 #include "Renderer/Renderer.h"
 #include "Framework/Scene.h"
 #include "Core/File.h"
+#include "Level.h"
 
 
 Folder* Folder::_workingFolder = nullptr;
+Level level = Level();
 
 void Folder::OnCollision(Actor* other)
 {
@@ -16,23 +18,26 @@ void Folder::OnCollision(Actor* other)
 	}
 	if (whermst::tolower(other->tag) == "cursor") {
 		if (whermst::GetEngine().GetInput().GetMouseButtonPressed(whermst::InputSystem::MouseButton::Left)) {
-			OpenFolder(this, _workingFolder);
+			OpenFolder(this, _workingFolder, goesTo);
+			
 		}
 	}
 }
 
-void Folder::OpenFolder(Folder* openedFolder, Folder*& workingFolder)
-{
-	Logger::Info("Folder: this folder is opening");
-	if (openedFolder) {
-		if (openedFolder->_encrypted) {
-			// trigger mini-game later
-			//return if mini-game is failed
-		}	
-		_workingFolder = openedFolder; // switch current view
-			
-		return;
-	}
+void Folder::OpenFolder(Folder* openedFolder, Folder*& workingFolder, int levelNumber)  
+{  
+    Logger::Info("Folder: this folder is opening");  
+    if (openedFolder) {  
+		if (levelNumber != -1) {
+			level.GoToLevel(openedFolder->_scene, levelNumber);
+		}
+        if (openedFolder->_encrypted) {  
+            // trigger mini-game later  
+            // return if mini-game is failed  
+        }  
+        _workingFolder = openedFolder; // switch current view  
+        return;  
+    }  
 }
 
 
@@ -45,11 +50,11 @@ void Folder::Draw(whermst::Renderer& renderer) {
 		}
 		float width = (float)renderer.GetWidth();
 		float height = (float)renderer.GetHeight();
-		whermst::vec2 position{ width * 0.2f, height * 0.2f };
+		whermst::vec2 position{ width * 0.5f, height * 0.2f + 100};
 		for (auto folder : _folders) {
 			folder->transform.position = position;
 			renderer.DrawTexture(folder->_texture.get(), folder->transform.position.x, folder->transform.position.y, folder->transform.rotation, folder->transform.scale);
-			_fileNameText->Create(renderer, folder -> name, { 1, 1, 1 });
+			_fileNameText->Create(renderer, folder -> name, { 0, 0, 0 });
 			_fileNameText->Draw(renderer, position.x + 80, position.y, 1.0f);
 			position.y += 150;
 		}

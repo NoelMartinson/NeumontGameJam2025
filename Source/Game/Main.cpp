@@ -50,7 +50,7 @@ int main(int argc, char* argv[]) {
 
 
     //initialize image
-    auto BKG = whermst::Resources().Get<whermst::Texture>("Background(temp).png", whermst::GetEngine().GetRenderer());
+    auto BKG = whermst::Resources().Get<whermst::Texture>("GameJamBG1.png", whermst::GetEngine().GetRenderer());
 
     SDL_Event e;
     bool quit = false;
@@ -93,7 +93,7 @@ int main(int argc, char* argv[]) {
         
 
 
-		whermst::GetEngine().GetRenderer().DrawTexture(BKG.get(), 0, 0);
+		whermst::GetEngine().GetRenderer().DrawTexture(BKG.get(), whermst::GetEngine().GetRenderer().GetWidth() * 0.5f, whermst::GetEngine().GetRenderer().GetHeight() * 0.5f, 0, 2.2f);
 		game->Draw(whermst::GetEngine().GetRenderer());
        whermst::GetEngine().GetRenderer().Present(); // Render the screen
     }

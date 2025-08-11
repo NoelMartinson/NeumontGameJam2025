@@ -62,5 +62,5 @@ void FileGame::Draw(class whermst::Renderer& renderer) {
 	
 	_scene->Draw(renderer);
 	_namesText->Create(renderer, Folder::getWorkingFolder()->name, { 0, 0, 0 });
-	_namesText->Draw(renderer, 20, 20);
+	_namesText->Draw(renderer, whermst::GetEngine().GetRenderer().GetWidth() * 0.3f - 50, whermst::GetEngine().GetRenderer().GetHeight() * 0.2f);
 }
