@@ -53,7 +53,6 @@ public:
 			whermst::Transform transform{ whermst::vec2{whermst::GetEngine().GetRenderer().GetWidth() * 0.2f, whermst::GetEngine().GetRenderer().GetHeight() * 0.2f}, 0, 2 };
 			std::unique_ptr<Folder> Captcha = std::make_unique<Folder>(transform, whermst::Resources().Get<whermst::Texture>("Assets/Folder.png", whermst::GetEngine().GetRenderer()), "Captcha", true);
 			Captcha->tag = "File";
-			Captcha->name = "Captcha";
 			Logger::Info("Folder: {} created", Captcha->name);
 			scene->AddActor(std::move(Captcha));
 		}
